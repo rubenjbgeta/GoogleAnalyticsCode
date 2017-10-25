@@ -6,10 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonToActivity1;
     private Button buttonToActivity2;
+
+    private FirebaseAnalytics mFirebaseAnalytics;
+
+    private final static String SCREEN_NAME = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 goToSecondActivity();
             }
         });
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        //TODO: Track screen access
+        //Track screen access
+        mFirebaseAnalytics.setCurrentScreen(this, SCREEN_NAME, null);
+
+        mFirebaseAnalytics.logEvent("Acceso_a_"+SCREEN_NAME, null);
     }
 
     private void goToFirstActivity() {
