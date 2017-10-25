@@ -2,20 +2,15 @@ package rubenj.google.analytics.analyticsbaseexample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ParentActivity {
 
     private Button buttonToActivity1;
     private Button buttonToActivity2;
 
-    private FirebaseAnalytics mFirebaseAnalytics;
-
-    private final static String SCREEN_NAME = "MainActivity";
+    private final static String SCREEN_NAME = "Main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 goToSecondActivity();
             }
         });
-
-        // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        //Track screen access
-        mFirebaseAnalytics.setCurrentScreen(this, SCREEN_NAME, null);
-
-        mFirebaseAnalytics.logEvent("Acceso_a_"+SCREEN_NAME, null);
     }
 
     private void goToFirstActivity() {
@@ -65,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
         //TODO: Track event
+    }
+
+    @Override
+    public String getScreenNameForAnalytics() {
+        return SCREEN_NAME;
     }
 }

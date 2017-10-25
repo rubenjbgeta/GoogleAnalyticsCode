@@ -1,13 +1,14 @@
 package rubenj.google.analytics.analyticsbaseexample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends ParentActivity {
 
     private Button buttonEvent;
+
+    private final static String SCREEN_NAME = "First";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,11 @@ public class FirstActivity extends AppCompatActivity {
                 doEvent();
             }
         });
+    }
+
+    @Override
+    public String getScreenNameForAnalytics() {
+        return SCREEN_NAME;
     }
 
     @Override
