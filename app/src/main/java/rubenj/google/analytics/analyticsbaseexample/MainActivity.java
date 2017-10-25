@@ -39,14 +39,14 @@ public class MainActivity extends ParentActivity {
         Intent intent = new Intent(this, FirstActivity.class);
         startActivity(intent);
 
-        //TODO: Track event
+        EventsAnalyticsUtils.trackBtnGoToFirstActivity(this);
     }
 
     private void goToSecondActivity() {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
 
-        //TODO: Track event
+        EventsAnalyticsUtils.trackBtnGoToSecondActivity(this);
     }
 
     @Override

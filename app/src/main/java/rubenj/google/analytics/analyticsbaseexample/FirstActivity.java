@@ -33,12 +33,10 @@ public class FirstActivity extends ParentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        //TODO: Track screen access
     }
 
     private void doEvent() {
-        //TODO: Track event
+        EventsAnalyticsUtils.trackBtnEventExample(this);
     }
 
 }

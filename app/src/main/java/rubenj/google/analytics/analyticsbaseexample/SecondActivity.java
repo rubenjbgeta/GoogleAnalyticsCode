@@ -20,8 +20,6 @@ public class SecondActivity extends ParentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        //TODO: Track screen access
     }
 
 }
