@@ -27,4 +27,14 @@
         android:layout_marginTop="22dp"
         android:id="@+id/buttonEvent" />
 
+    <Button
+        android:text="Button CRASH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonEvent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp"
+        android:id="@+id/buttonCrash" />
+
 </RelativeLayout>

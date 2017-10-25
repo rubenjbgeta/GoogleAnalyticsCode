@@ -6,7 +6,7 @@ import android.widget.Button;
 
 public class FirstActivity extends ParentActivity {
 
-    private Button buttonEvent;
+    private Button buttonEvent,buttonCrash;
 
     private final static String SCREEN_NAME = "First";
 
@@ -21,6 +21,16 @@ public class FirstActivity extends ParentActivity {
             @Override
             public void onClick(View v) {
                 doEvent();
+            }
+        });
+
+        buttonCrash = (Button) findViewById(R.id.buttonCrash);
+
+        buttonCrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = null;
+                s.toString();
             }
         });
     }
